@@ -1,4 +1,6 @@
-
+<?php 
+require_once("../controller/productController.php");
+?>
 
 <!DOCTYPE html>
  <head>
@@ -31,7 +33,17 @@
 
     <!-- Titulo -->
     <title>Tu nombre's portfolio</title>
-
+<style>
+  .product {
+  display: inline-block;
+  width: 30%;
+  height: 50px;
+}
+.product img {
+    height:100px;
+    height:100px;
+}
+</style>
 </head>
  <body>
  <header>
@@ -41,22 +53,26 @@
     </div>
  </header>
   
-<!-- <form action="../controller/productController.php">
-
+ 
+ <div >
+     <button id="btnPerifericos" href="#" >Perifericos</button>
+     <button id="btnPartsComputadora" href='#' >Partes de la computadora</button>
+     <button id="btnTeclas" href='#' >Teclas</button>
+     <button id="btnServicios" href='#'>Servicio</button>
+     
+    </form>
+</div>    
+<form action="../controller/productController.php">
+    <div style="width: 100%">
     <?php foreach($results as $product): ?>
-    <h2><?= $product->nameProduct; ?></h2>
-    <p><?= $product->descriptionProduct; ?></p>
-    <p>Precio: <?= $product->priceProduct; ?></p>
-<?php endforeach; ?>
-</form> -->
-
-    <div >
-        <button id="btnPerifericos" href="#" >Perifericos</button>
-        <button id="btnPartsComputadora" href='#' >Partes de la computadora</button>
-        <button id="btnTeclas" href='#' >Teclas</button>
-        <button id="btnServicios" href='#'>Servicio</button>
-       
-        </form>
-    </div>    
+       <div class="product">
+        <img src=<?= $product->imagenProduct;?>></img>
+        <h2><?= $product->nameProduct; ?></h2>
+        <p><?= $product->descriptionProduct; ?></p>
+        <p>Precio: <?= $product->priceProduct; ?></p>
+    </div>
+        <?php endforeach; ?>
+    </div>
+    </form>
  </body>
  </html>

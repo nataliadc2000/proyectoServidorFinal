@@ -5,7 +5,7 @@ require("../model/users.php");
 function selectUsuarios($pdo) {
     try {
         //Hacemos la query
-        $statement = $pdo->query("SELECT username,mail,pass,description from users where users.username='$_COOKIE[username]'");
+        $statement = $pdo->query("SELECT * from users ");
 
         $results = [];
 
