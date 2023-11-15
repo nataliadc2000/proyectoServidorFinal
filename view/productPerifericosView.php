@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/productController.php");
+require_once("../controller/productPerifericosController.php");
 ?>
 
 <!DOCTYPE html>
@@ -50,22 +50,24 @@ require_once("../controller/productController.php");
     <div style="background-color: azure;" >
         <a style="color:black
         ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
+
     </div>
  </header>
   
  
  <div >
- <!-- <button id="btnPerifericos" href="../view/productPerifericosView.php" >Perifericos</button> -->
+ <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
      
+     
     </form>
 </div>    
-<form action="../controller/productController.php">
+<form action="../controller/productPerifericosController.php">
     <div style="width: 100%">
-    <?php foreach($resultsPro as $product): ?>
+    <?php foreach($resultsProPeri as $product): ?>
        <div class="product">
         <img src=<?= $product->imagenProduct;?>></img>
         <h2><?= $product->nameProduct; ?></h2>
