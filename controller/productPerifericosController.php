@@ -2,7 +2,7 @@
 
 require_once("../model/productDAO.php");
 
-$resultsPro = selectproducts($pdo);
+$resultsProPeri = selectProductForPerifericos($pdo);
 
 $pdo = null;
 

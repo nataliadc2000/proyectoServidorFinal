@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/productController.php");
+require_once("../controller/ServicesController.php");
 ?>
 
 <!DOCTYPE html>
@@ -50,27 +50,29 @@ require_once("../controller/productController.php");
     <div style="background-color: azure;" >
         <a style="color:black
         ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
+
     </div>
  </header>
   
  
  <div >
- <!-- <button id="btnPerifericos" href="../view/productPerifericosView.php" >Perifericos</button> -->
+ <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
      
+     
     </form>
 </div>    
-<form action="../controller/productController.php">
+<form action="../controller/ServicesController.php">
     <div style="width: 100%">
-    <?php foreach($resultsPro as $product): ?>
+    <?php foreach($resultsProPeri as $service): ?>
        <div class="product">
-        <img src=<?= $product->imagenProduct;?>></img>
-        <h2><?= $product->nameProduct; ?></h2>
-        <p><?= $product->descriptionProduct; ?></p>
-        <p>Precio: <?= $product->priceProduct; ?></p>
+        <img src=<?= $service->imagesServices;?>></img>
+        <h2><?= $service->nameService; ?></h2>
+        <p><?= $service->descriptionServices; ?></p>
+        <p>Precio: <?= $service->priceServices; ?></p>
     </div>
         <?php endforeach; ?>
     </div>
