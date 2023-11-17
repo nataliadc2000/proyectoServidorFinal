@@ -56,7 +56,7 @@ require_once("../controller/productPerifericosController.php");
   
  
  <div >
- <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
+<a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
@@ -66,7 +66,7 @@ require_once("../controller/productPerifericosController.php");
     </form>
 </div>    
 <form action="../controller/productPerifericosController.php">
-    <div style="width: 100%">
+    <div style="width: auto; height:auto; border:1px solid black;">
     <?php foreach($resultsProPeri as $product): ?>
        <div class="product">
         <img src=<?= $product->imagenProduct;?>></img>

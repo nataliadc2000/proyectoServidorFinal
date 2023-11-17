@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/workersController");
+require_once("../controller/workersController.php");
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ require_once("../controller/workersController");
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
+/* body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
@@ -18,7 +18,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
-}
+} */
 
 .column {
   float: left;
@@ -38,7 +38,16 @@ html {
   background-color: #474e5d;
   color: white;
 }
-
+.product {
+    display: inline-block;
+    width: 300%;
+    height: 50px;
+    border: 1px solid black;
+}
+.product img {
+    height: 100px;
+    width: 100px;
+}
 .container {
   padding: 0 16px;
 }
@@ -53,21 +62,6 @@ html {
   color: grey;
 }
 
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-}
-
-.button:hover {
-  background-color: #555;
-}
 
 @media screen and (max-width: 650px) {
   .column {
@@ -81,23 +75,22 @@ html {
 
 <div class="about-section">
   <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
 
   <form action="../controller/workersController.php">
-  <div style="width: 100%">
+  <div style="width: 100%;">
     <?php foreach($resultsWorkers as $product): ?>
-       <div class="card">
+       <div class="product">
         <img src=<?= $product->imagenworkers;?>></img>
         <h2><?= $product->nameworkers; ?></h2>
         <p><?= $product->perfilworkers; ?></p>
         <p>Nacionality: <?= $product->nacionalityworkers; ?></p>
-        <!-- <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button> -->
+       </div><!-- <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button> -->
         <?php endforeach; ?>
+       </div>
     </div>
   </form>
   
