@@ -1,5 +1,6 @@
 <?php 
 require_once("../controller/productController.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +57,12 @@ require_once("../controller/productController.php");
  
  <div >
  <!-- <button id="btnPerifericos" href="../view/productPerifericosView.php" >Perifericos</button> -->
+ <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
-     
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
     </form>
 </div>    
 <form action="../controller/productController.php">
@@ -76,4 +78,22 @@ require_once("../controller/productController.php");
     </div>
     </form>
  </body>
+ <footer>    
+       <h3>Formulario de Contacto</h3>
+       <form method="POST" action="indexMail.php">
+           <label for="nombre">Nombre:</label>
+           <input type="text" id="nombre" name="nombre" required><br><br>
+    
+           <label for="correo">Correo electrónico:</label>
+           <input type="email" id="correo" name="correo" required><br><br>
+    
+           <label for="mensaje">Mensaje:</label>
+           <textarea id="mensaje" name="mensaje" required></textarea><br><br>
+    
+           <input type="submit" value="Enviar">
+       </form>
+    <h3>Formulario de contacto:</h3>
+    <p>telefono movil: 600609013</p>
+    <p> correo electronico: ndcarbajosa@gmail.com</p>
+</footer>
  </html>

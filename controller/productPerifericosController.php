@@ -7,4 +7,9 @@ $resultsProPeri = selectProductForPerifericos($pdo);
 $pdo = null;
 
 header("./view/productView.php");
+
+
+function agregarProductosAlCarrito($product){
+    
+}
 ?>

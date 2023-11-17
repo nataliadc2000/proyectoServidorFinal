@@ -61,7 +61,7 @@ require_once("../controller/productPerifericosController.php");
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
-     
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
      
     </form>
 </div>    
@@ -73,7 +73,7 @@ require_once("../controller/productPerifericosController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
-    </div>
+        <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button>
         <?php endforeach; ?>
     </div>
     </form>
