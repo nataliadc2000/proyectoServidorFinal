@@ -56,12 +56,12 @@ require_once("../controller/productTeclasController.php");
   
  
  <div >
-    <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
+ <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
-     
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
     </form>
 </div>    
 <form action="../controller/productTeclasController.php">

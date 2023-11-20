@@ -36,7 +36,10 @@
  
  <a href="../view/LoginView.php">Ya estas registrado. Inicia session</a>
  <a href="../view/RegistroView.php">No te has registrado. registrate ahora</a>
- </body>
+
+
+</body>
+    
  </html>
 
  </body>

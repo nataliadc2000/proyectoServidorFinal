@@ -50,18 +50,18 @@ require_once("../controller/productPartsOfTheComputerController.php");
     <div style="background-color: azure;" >
         <a style="color:black
         ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
-
+        <img src="" alt="">
     </div>
  </header>
   
  
  <div >
-    <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
+ <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
-     
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
     </form>
 </div>    
 <form action="../controller/productPartsOfTheComputerController.php">

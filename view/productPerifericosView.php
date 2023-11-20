@@ -56,24 +56,24 @@ require_once("../controller/productPerifericosController.php");
   
  
  <div >
- <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
+<a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
-     
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
      
     </form>
 </div>    
 <form action="../controller/productPerifericosController.php">
-    <div style="width: 100%">
+    <div style="width: auto; height:auto; border:1px solid black;">
     <?php foreach($resultsProPeri as $product): ?>
        <div class="product">
         <img src=<?= $product->imagenProduct;?>></img>
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
-    </div>
+        <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button>
         <?php endforeach; ?>
     </div>
     </form>
