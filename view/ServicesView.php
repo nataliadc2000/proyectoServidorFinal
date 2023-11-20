@@ -56,6 +56,7 @@ require_once("../controller/ServicesController.php");
   
  
  <div >
+    <!-- make the button that is the part of the program and we use this to change the web in this moment-->
  <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
  <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
