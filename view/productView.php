@@ -56,14 +56,16 @@ require_once("../controller/productController.php");
   
  
  <div >
- <!-- <button id="btnPerifericos" href="../view/productPerifericosView.php" >Perifericos</button> -->
- <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
- <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
-    <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
+ <!-- <button id="btnperipherals" href="../view/productperipheralsView.php" >peripherals</button> -->
+ <a class="btn btn-primary"href="../view/productView.php">All Products</a>
+ <a class="btn btn-primary" href="../view/productperipheralsView.php">peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Parts of the computer</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href="../view/CestaView.php">Cesta</a>
     </form>
+    
 </div>    
 <form action="../controller/productController.php">
     <div style="width: 100%">

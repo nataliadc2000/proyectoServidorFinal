@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/productPerifericosController.php");
+require_once("../controller/productperipheralsController.php");
 ?>
 
 <!DOCTYPE html>
@@ -56,16 +56,18 @@ require_once("../controller/productPerifericosController.php");
   
  
  <div >
-<a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
- <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
-    <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
+<a class="btn btn-primary"href="../view/productView.php">All Products</a>
+ <a class="btn btn-primary" href="../view/productperipheralsView.php">peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Parts of the computer</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Sevices</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href="../view/CestaView.php">Cesta</a>
+        
      
     </form>
 </div>    
-<form action="../controller/productPerifericosController.php">
+<form action="../controller/productperipheralsController.php">
     <div style="width: auto; height:auto; border:1px solid black;">
     <?php foreach($resultsProPeri as $product): ?>
        <div class="product">

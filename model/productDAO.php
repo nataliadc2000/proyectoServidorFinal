@@ -17,7 +17,7 @@ function selectproducts($pdo) {
         echo "No se ha podido completar la transaccion" .$e;
     }
 }
-function selectProductForPerifericos($pdo) {
+function selectProductForperipherals($pdo) {
     try {
         $statement = $pdo->prepare("SELECT * FROM products WHERE categoryProduct = 'periféricos'");
         $statement->execute();
