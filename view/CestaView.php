@@ -71,7 +71,7 @@ include ('../model/AllIds.php')
         ?>
     <h3>Bienvenido <?= $_SESSION['usuario']['nombre']?></h3>
     <a href="logout.php">Logout</a>
-    <form method="POST" action="Comprar.php">
+    <form method="POST" action="Buy.php">
         <button type="submit" class="btn btn-primary">Comprar</button>
     </form>
     <?php
@@ -123,16 +123,16 @@ if (isset($_SESSION["carritoProductos"]) && count($_SESSION["carritoProductos"])
 
     // Mostrar los productos en el carrito
     foreach ($productosCarrito as $producto) {
-        echo $producto['nombreProducto'] . "<br>";
-        echo $producto['descripcionProducto'] . "<br>";
-        echo $producto['precioProducto'] . "<br>";
-        echo $producto['categoriaProducto'] . "<br>";
-        echo '<img src="' . $producto['imagenProducto'] . '"><br>';
+        echo $producto['nameProduct'] . "<br>";
+        echo $producto['descriptionProduct'] . "<br>";
+        echo $producto['priceProduct'] . "<br>";
+        echo $producto['categoryProduct'] . "<br>";
+        echo '<img src="' . $producto['imagenProduct'] . '"><br>';
         echo "<br>";
         ?>
-    <form method="POST" action="Eliminar.php">
+    <form method="POST" action="Drop.php">
         <input type="hidden" name="idProducto" value="<?php echo $producto['idProducto']; ?>">
-        <button type="submit" class="btn btn-primary">Eliminar</button>
+        <button type="submit" class="btn btn-primary">Drop</button>
     </form>
     <?php
     }
@@ -162,7 +162,7 @@ if (isset($_SESSION["carritoServicios"]) && count($_SESSION["carritoServicios"])
             ?>
     <form method="POST" action="Drop.php">
         <input type="hidden" name="idServicio" value="<?php echo $servicio['idServicio']; ?>">
-        <button type="submit" class="btn btn-primary">Eliminar</button>
+        <button type="submit" class="btn btn-primary">Drop</button>
     </form>
     <?php
 }
