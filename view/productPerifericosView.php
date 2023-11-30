@@ -74,6 +74,7 @@ require_once("../controller/productPerifericosController.php");
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
         <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button>
+        
         <?php endforeach; ?>
     </div>
     </form>
