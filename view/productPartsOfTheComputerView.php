@@ -63,8 +63,8 @@ require_once("../controller/productPartsOfTheComputerController.php");
     <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
         <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
-        <
-    </form>
+        <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
+
 </div>    
 <form action="../controller/productPartsOfTheComputerController.php">
     <div style="width: 100%">
@@ -74,7 +74,10 @@ require_once("../controller/productPartsOfTheComputerController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
-        <button id="btnAnadir" title="Add in the list" onclick="agregarProductosAlCarrito($product)">Add in the list</button>
+        <form method="POST" action="CestaView.php">
+                <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
 
     </div>
         <?php endforeach; ?>

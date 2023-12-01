@@ -63,8 +63,8 @@ require_once("../controller/ServicesController.php");
  <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
-        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>     
-    </form>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a> 
+        <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>    
 </div>    
 <form action="../controller/ServicesController.php">
     <div style="width: 100%">
