@@ -7,7 +7,7 @@ function obtenerProductosPorIds($pdo, $idsProductos) {
     $idsProductosStr = implode(",", $idsProductos);
     
     // Consultar la base de datos para obtener los detalles de los productos
-    $query = "SELECT * FROM products WHERE idproductos IN ($idsProductosStr)";
+    $query = "SELECT * FROM products WHERE idproducts IN ($idsProductosStr)";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ function obtenerServiciosPorIds($pdo, $idsServicios) {
     $idsServiciosStr = implode(",", $idsServicios);
     
     // Consultar la base de datos para obtener los detalles de los servicios
-    $query = "SELECT * FROM services WHERE idServices IN ($idsServiciosStr)";
+    $query = "SELECT * FROM services WHERE idservices IN ($idsServiciosStr)";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     $servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);

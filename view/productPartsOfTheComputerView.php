@@ -75,7 +75,7 @@ require_once("../controller/productPartsOfTheComputerController.php");
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
         <form method="POST" action="CestaView.php">
-                <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
+        <input type="hidden" name="idproducto" value="<?php echo $product->idProduct; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
 

@@ -74,7 +74,7 @@ require_once("../controller/ServicesController.php");
         <h2><?= $service->nameService; ?></h2>
         <p><?= $service->descriptionServices; ?></p>
         <p>Precio: <?= $service->priceServices; ?></p>
-        <a href="./pgservice.php?nameService=<?= urlencode($service->nameService); ?>">Ver más detalles</a>
+        <input type="hidden" name="idservices" value="<?php echo $service->idservices; ?>">
     </div>
         <?php endforeach; ?>
     </div>
