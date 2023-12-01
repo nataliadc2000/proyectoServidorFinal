@@ -50,7 +50,7 @@ require_once("../controller/productTeclasController.php");
     <div style="background-color: azure;" >
         <a style="color:black
         ; font-size: 20px;"> Welcome to the main product page</a>
-
+<a href="./userperfil.php">My perfil</a> 
     </div>
  </header>
   
@@ -74,6 +74,8 @@ require_once("../controller/productTeclasController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
+        <button id="btnAnadir" title="Add in the list" onclick="agregarProductosAlCarrito($product)">Add in the list</button>
+
     </div>
         <?php endforeach; ?>
     </div>

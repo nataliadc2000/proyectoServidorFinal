@@ -47,11 +47,10 @@ require_once("../controller/productPerifericosController.php");
 </head>
  <body>
  <header>
-    <div style="background-color: azure;" >
+    <div style="background-color: azure; width:auto; height:auto" >
         <a style="color:black
         ; font-size: 20px;"> Welcome to the main product page</a>
-
-    </div>
+<a href="./userperfil.php">My perfil</a>     </div>
  </header>
   
  
@@ -64,8 +63,6 @@ require_once("../controller/productPerifericosController.php");
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
         <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
 
-     
-    </form>
 </div>    
 <form action="../controller/productPerifericosController.php">
     <div style="width: auto; height:auto; border:1px solid black;">
@@ -75,10 +72,9 @@ require_once("../controller/productPerifericosController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Price: <?= $product->priceProduct; ?></p>
-        <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button>
-        
-        <?php endforeach; ?>
+        <button id="btnAnadir" title="Add in the list" onclick="agregarProductosAlCarrito($product)">Add in the list</button>
     </div>
+        <?php endforeach; ?>
     </form>
  </body>
  </html>
