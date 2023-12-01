@@ -50,19 +50,21 @@ require_once("../controller/productController.php");
  <header>
     <div style="background-color: azure;" >
         <a style="color:black
-        ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
+        ; font-size: 20px;"> Welcome to the main product page</a>
     </div>
  </header>
   
  
  <div >
  <!-- <button id="btnPerifericos" href="../view/productPerifericosView.php" >Perifericos</button> -->
- <a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
- <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
-    <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
+ <a class="btn btn-primary"href="../view/productView.php">All Products</a>
+ <a class="btn btn-primary" href="../view/productPerifericosView.php">Peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
+
     </form>
 </div>    
 <form action="../controller/productController.php">
@@ -78,22 +80,5 @@ require_once("../controller/productController.php");
     </div>
     </form>
  </body>
- <footer>    
-       <h3>Formulario de Contacto</h3>
-       <form method="POST" action="indexMail.php">
-           <label for="nombre">Nombre:</label>
-           <input type="text" id="nombre" name="nombre" required><br><br>
-    
-           <label for="correo">Correo electrónico:</label>
-           <input type="email" id="correo" name="correo" required><br><br>
-    
-           <label for="mensaje">Mensaje:</label>
-           <textarea id="mensaje" name="mensaje" required></textarea><br><br>
-    
-           <input type="submit" value="Enviar">
-       </form>
-    <h3>Formulario de contacto:</h3>
-    <p>telefono movil: 600609013</p>
-    <p> correo electronico: ndcarbajosa@gmail.com</p>
-</footer>
+ 
  </html>

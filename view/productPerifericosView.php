@@ -49,19 +49,21 @@ require_once("../controller/productPerifericosController.php");
  <header>
     <div style="background-color: azure;" >
         <a style="color:black
-        ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
+        ; font-size: 20px;"> Welcome to the main product page</a>
 
     </div>
  </header>
   
  
  <div >
-<a class="btn btn-primary"href="../view/productView.php">Todos los productos</a>
- <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Partes de la computadora</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">Teclas</a>
-    <a class="btn btn-primary" href="../view/ServicesView.php">Servicios</a>
+<a class="btn btn-primary"href="../view/productView.php">All Products</a>
+ <a class="btn btn-primary" href="../view/productPerifericosView.php">Peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
+
      
     </form>
 </div>    
@@ -72,7 +74,7 @@ require_once("../controller/productPerifericosController.php");
         <img src=<?= $product->imagenProduct;?>></img>
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
-        <p>Precio: <?= $product->priceProduct; ?></p>
+        <p>Price: <?= $product->priceProduct; ?></p>
         <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button>
         
         <?php endforeach; ?>

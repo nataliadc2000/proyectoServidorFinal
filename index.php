@@ -29,13 +29,13 @@
     <link rel="shortcut icon" href="media/icon/favicon.png" type="image/xpng">
 
     <!-- Titulo -->
-    <title>Tu nombre's portfolio</title>
+    <title>Products's shop</title>
 
 </head>
  <body>
  
- <a href="../view/LoginView.php">Ya estas registrado. Inicia session</a>
- <a href="../view/RegistroView.php">No te has registrado. registrate ahora</a>
+ <a href="../view/LoginView.php">You're already registered. Log in</a>
+ <a href="../view/RegistroView.php">You haven't registered. Register Now</a>
 
 
 </body>
