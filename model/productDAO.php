@@ -19,7 +19,7 @@ function selectproducts($pdo) {
 }
 function selectProductForperipherals($pdo) {
     try {
-        $statement = $pdo->prepare("SELECT * FROM products WHERE categoryProduct = 'periféricos'");
+        $statement = $pdo->prepare("SELECT * FROM products WHERE categoryProduct = 'peripherals'");
         $statement->execute();
         $resultsPeri = [];
         foreach ($statement->fetchAll() as $p) {
@@ -51,10 +51,12 @@ function selectProductForPartsOfTheComputer($pdo) {
 
 function selectProductForTeclas($pdo) {
     try {
-        $statementteclas = $pdo->prepare("SELECT * FROM products WHERE categoryProduct ='teclas'");
+        $statementteclas = $pdo->prepare("SELECT * FROM products WHERE categoryProduct ='keys'");
+    //    echo $statementteclas;
         $statementteclas->execute();
         $resultsTeclas = [];
         foreach ($statementteclas->fetchAll() as $par) {
+            // echo $par;
             $objectPar = new Product($par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
             array_push($resultsTeclas, $objectPar);
         }

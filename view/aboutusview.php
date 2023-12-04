@@ -74,6 +74,7 @@ html {
 <body>
 
 <div class="about-section">
+<a href="javascript:history.back()"><- Go Back</a>
   <h1>About Us Page</h1>
 </div>
 
@@ -81,6 +82,7 @@ html {
 <div class="row">
 
   <form action="../controller/workersController.php">
+
   <div style="width: 100%;">
     <?php foreach($resultsWorkers as $product): ?>
        <div class="product">

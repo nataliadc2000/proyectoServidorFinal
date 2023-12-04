@@ -49,21 +49,22 @@ require_once("../controller/productPartsOfTheComputerController.php");
  <header>
     <div style="background-color: azure;" >
         <a style="color:black
-        ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
-        <img src="" alt="">
+        ; font-size: 20px;"> Welcome to the main product page</a>
+        <a href="./userperfil.php">My perfil</a> 
     </div>
  </header>
   
  
  <div >
  <a class="btn btn-primary"href="../view/productView.php">All Products</a>
- <a class="btn btn-primary" href="../view/productperipheralsView.php">peripherals</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Parts of the computer</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">keys</a>
+ <a class="btn btn-primary" href="../view/productPerifericosView.php">perifericos</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
     <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
-        <a class="btn btn-primary" href="../view/CestaView.php">Cesta</a>
-    </form>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
+        <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
+
 </div>    
 <form action="../controller/productPartsOfTheComputerController.php">
     <div style="width: 100%">
@@ -73,6 +74,11 @@ require_once("../controller/productPartsOfTheComputerController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
+        <form method="POST" action="CestaView.php">
+        <input type="hidden" name="idproducto" value="<?php echo $product->idProduct; ?>">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
+
     </div>
         <?php endforeach; ?>
     </div>

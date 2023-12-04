@@ -17,7 +17,7 @@ include ('login.php');
 
 <div style="background-color: azure;" >
         <a style="color:black
-        ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos <?= $_SESSION["usuario"]->username ?></a>
+        ; font-size: 20px;"> Welcome to the main product page <?= $_SESSION["usuario"]->username ?></a>
         < 
     </div>
     <section class="section">

@@ -49,14 +49,15 @@ require_once("../controller/productTeclasController.php");
  <header>
     <div style="background-color: azure;" >
         <a style="color:black
-        ; font-size: 20px;"> Bienvenidos a la pagina principal de los productos</a>
-
+        ; font-size: 20px;"> Welcome to the main product page</a>
+<a href="./userperfil.php">My perfil</a> 
     </div>
  </header>
   
  
  <div >
  <a class="btn btn-primary"href="../view/productView.php">All Products</a>
+<<<<<<< HEAD
  <a class="btn btn-primary" href="../view/productperipheralsView.php">peripherals</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Parts of the computer</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
@@ -64,6 +65,15 @@ require_once("../controller/productTeclasController.php");
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
     <a class="btn btn-primary" href="../view/CestaView.php">Cesta</a>
     </form>
+=======
+ <a class="btn btn-primary" href="../view/productPerifericosView.php">Peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
+        <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
+>>>>>>> 83f94b6ecd94a6e8dd215319e5f1b0b97f6e30ba
 
 </div>    
 <form action="../controller/productTeclasController.php">
@@ -74,6 +84,10 @@ require_once("../controller/productTeclasController.php");
         <h2><?= $product->nameProduct; ?></h2>
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
+        <form method="POST" action="CestaView.php">
+                <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
     </div>
         <?php endforeach; ?>
     </div>

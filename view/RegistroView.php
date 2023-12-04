@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Para cambiar de modo oscuro "dark" a modo normal, simplemente cambiarlo por "light"-->
 
 <head>
 
