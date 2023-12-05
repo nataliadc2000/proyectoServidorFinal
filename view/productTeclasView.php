@@ -1,5 +1,6 @@
+
 <?php 
-require_once("../controller/productTeclasController.php");
+include("../controller/productTeclasController.php");
 ?>
 
 <!DOCTYPE html>
@@ -57,15 +58,6 @@ require_once("../controller/productTeclasController.php");
  
  <div >
  <a class="btn btn-primary"href="../view/productView.php">All Products</a>
-<<<<<<< HEAD
- <a class="btn btn-primary" href="../view/productperipheralsView.php">peripherals</a>
- <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Parts of the computer</a>
- <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
-    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
-        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
-    <a class="btn btn-primary" href="../view/CestaView.php">Cesta</a>
-    </form>
-=======
  <a class="btn btn-primary" href="../view/productPerifericosView.php">Peripherals</a>
  <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
  <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
@@ -73,10 +65,8 @@ require_once("../controller/productTeclasController.php");
         <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
         <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
         <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
->>>>>>> 83f94b6ecd94a6e8dd215319e5f1b0b97f6e30ba
 
 </div>    
-<form action="../controller/productTeclasController.php">
     <div style="width: 100%">
     <?php foreach($resultsProTeclas as $product): ?>
        <div class="product">
@@ -85,12 +75,11 @@ require_once("../controller/productTeclasController.php");
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
         <form method="POST" action="CestaView.php">
-                <input type="hidden" name="idProducto" value="<?php echo $row['idProducto']; ?>">
+        <input type="hidden" name="nameProduct" value="<?php echo $product->idproducts; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
     </div>
         <?php endforeach; ?>
     </div>
-    </form>
  </body>
  </html>

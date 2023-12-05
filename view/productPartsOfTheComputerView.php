@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/productPartsOfTheComputerController.php");
+include("../controller/productPartsOfTheComputerController.php");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,6 @@ require_once("../controller/productPartsOfTheComputerController.php");
         <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
 
 </div>    
-<form action="../controller/productPartsOfTheComputerController.php">
     <div style="width: 100%">
     <?php foreach($resultsProParts as $product): ?>
        <div class="product">
@@ -75,13 +74,12 @@ require_once("../controller/productPartsOfTheComputerController.php");
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
         <form method="POST" action="CestaView.php">
-        <input type="hidden" name="idproducto" value="<?php echo $product->idProduct; ?>">
+        <input type="hidden" name="nameProduct" value="<?php echo $product->idproducts; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
 
     </div>
         <?php endforeach; ?>
     </div>
-    </form>
  </body>
  </html>

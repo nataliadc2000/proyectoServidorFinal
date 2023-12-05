@@ -8,7 +8,7 @@
         $results = [];
 
         foreach($statement->fetchAll() as $s){
-            $objectS = new Services($s["nameservices"],$s["imageservices"],$s["descriptionservices"],$s["priceServices"],$s["categoryservices"]);
+            $objectS = new Services($s["nameServices"],$s["imagesServices"],$s["descriptionServices"],$s["priceServices"],$s["categoryServices"]);
             array_push($results,$objectS);
         }
         return $results;

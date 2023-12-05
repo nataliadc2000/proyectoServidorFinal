@@ -6,7 +6,7 @@ function obtenerCompras($pdo,$usuario) {
     
     try {
 
-        $stmt = $pdo->prepare("SELECT * FROM carrito_usuario WHERE id_usuario = :usuario_id");
+        $stmt = $pdo->prepare("SELECT * FROM buys WHERE user_id = :usuario_id");
         $stmt->bindParam(':usuario_id', $_SESSION['usuario']['id']);
         $stmt->execute();
         $compras = $stmt->fetchAll(PDO::FETCH_ASSOC);

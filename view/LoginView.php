@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <div class="row g-3 mt-2 2-25 mx-auto">
-                    <a href="../view/RegistroView.php">
-                        Aun no estas registrado? REGISTRATE YA!
-                    </a>
+                <!-- <a href="../view/LoginView.php">You're already registered. Log in</a> -->
+ <a href="../view/RegistroView.php">You haven't registered. Register Now</a>
+
                 </div>
                 <div class="row g-3 mt-2 w-25 mx-auto">
                     <input id="sendBttn2" class="btn btn-primary btn-lg" type="submit" value="Send" name="submit"/>

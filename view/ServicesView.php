@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/ServicesController.php");
+include("../controller/ServicesController.php");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ require_once("../controller/ServicesController.php");
         <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a> 
         <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>    
 </div>    
-<form action="../controller/ServicesController.php">
+
     <div style="width: 100%">
     <?php foreach($resultsProPeri as $service): ?>
        <div class="product">
@@ -75,9 +75,13 @@ require_once("../controller/ServicesController.php");
         <p><?= $service->descriptionServices; ?></p>
         <p>Precio: <?= $service->priceServices; ?></p>
         <input type="hidden" name="idservices" value="<?php echo $service->idservices; ?>">
+        <a href="./pgservice.php?nameService=<?= urlencode($service->nameService); ?>">Ver más detalles</a>
+        <form method="POST" action="CestaView.php">
+        <input type="hidden" name="nameProduct" value="<?php echo $service->nameServices; ?>">
+                <button type="submit" class="btn btn-primary">Comprar</button>
+            </form>
     </div>
         <?php endforeach; ?>
     </div>
-</form>
  </body>
  </html>

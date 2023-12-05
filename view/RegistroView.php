@@ -76,7 +76,9 @@
                 </div>
             </fieldset>
             <div class="row g-3 mt-2 w-25 mx-auto">
-                <a href="../view/LoginView.php">Ya te has registrado. Inicia Session</a>
+            <a href="../view/LoginView.php">You're already registered. Log in</a>
+ <!-- <a href="../view/RegistroView.php">You haven't registered. Register Now</a> -->
+
             </div>
         </form>
     </div>

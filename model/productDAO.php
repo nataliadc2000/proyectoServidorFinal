@@ -9,7 +9,7 @@ function selectproducts($pdo) {
         $results = [];
 
         foreach ($statement->fetchAll() as $p) {
-            $objectP = new Product($p["imagenProduct"], $p["nameProduct"],$p["descriptionProduct"],$p["priceProduct"],$p["categoryProduct"]);
+            $objectP = new Product($p['idproducts'],$p["imagenProduct"], $p["nameProduct"],$p["descriptionProduct"],$p["priceProduct"],$p["categoryProduct"]);
             array_push($results, $objectP);
         }
         return $results;
@@ -23,7 +23,7 @@ function selectProductForperipherals($pdo) {
         $statement->execute();
         $resultsPeri = [];
         foreach ($statement->fetchAll() as $p) {
-            $objectP = new Product($p['imagenProduct'],$p['nameProduct'],$p['descriptionProduct'],$p['priceProduct'],$p['categoryProduct']);
+            $objectP = new Product($p['idproducts'],$p['imagenProduct'],$p['nameProduct'],$p['descriptionProduct'],$p['priceProduct'],$p['categoryProduct']);
             array_push($resultsPeri, $objectP);
         }
         return $resultsPeri;
@@ -39,7 +39,7 @@ function selectProductForPartsOfTheComputer($pdo) {
         $statementparts->execute();
         $resultsParts = [];
         foreach ($statementparts->fetchAll() as $par) {
-            $objectPar = new Product($par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
+            $objectPar = new Product($par['idproducts'],$par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
             array_push($resultsParts, $objectPar);
         }
         return $resultsParts;
@@ -57,7 +57,7 @@ function selectProductForTeclas($pdo) {
         $resultsTeclas = [];
         foreach ($statementteclas->fetchAll() as $par) {
             // echo $par;
-            $objectPar = new Product($par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
+            $objectPar = new Product($par['idproducts'], $par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
             array_push($resultsTeclas, $objectPar);
         }
         return $resultsTeclas;

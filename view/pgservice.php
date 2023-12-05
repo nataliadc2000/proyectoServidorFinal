@@ -10,7 +10,7 @@ function selectservices($pdo) {
         
         $resultsTypeResult = [];
         while ($s = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $objectS = new Services($s["nameservices"], $s["imageservices"], $s["descriptionservices"], $s["priceServices"], $s["categoryservices"]);
+            $objectS = new Services($s["nameServices"], $s["imagesServices"], $s["descriptionServices"], $s["priceServices"], $s["categoryServices"]);
             array_push($resultsTypeResult, $objectS);
         }
         

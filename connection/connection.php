@@ -4,6 +4,8 @@ function connection($host, $user, $pass, $bd) {
     return new PDO("mysql:host=$host;dbname=$bd", $user, $pass);
 }
 
+$arrayProduct =[];
+
 try {
     $host = "localhost:3306";
     $user = "root";

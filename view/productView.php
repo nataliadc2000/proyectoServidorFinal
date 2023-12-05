@@ -1,5 +1,5 @@
 <?php 
-require_once("../controller/productController.php");
+include("../controller/productController.php");
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ require_once("../controller/productController.php");
      <div style="background-color: azure;" >
         <a style="color:black
         ; font-size: 20px;"> Welcome to the main product page</a>
-            <a href="./userperfil.php">My perfil</a>    
+            <a href="./userperfil.php">My perfil</a>  
     </div>
 </a>
 
@@ -69,7 +69,6 @@ require_once("../controller/productController.php");
         <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
 
 </div>    
-<form action="../controller/productController.php">
     <div style="width: 100%">
     <?php foreach($resultsPro as $product): ?>
        <div class="product">
@@ -78,13 +77,14 @@ require_once("../controller/productController.php");
         <p><?= $product->descriptionProduct; ?></p>
         <p>Precio: <?= $product->priceProduct; ?></p>
         <form method="POST" action="CestaView.php">
-        <input type="hidden" name="idproducto" value="<?php echo $product->idProduct; ?>">
+        <input type="hidden" name="nameProduct" value="<?php echo $product->nameProduct; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
     </div>
         <?php endforeach; ?>
     </div>
-    </form>
+        
+    
  </body>
  
- </html>
+ </html> 
