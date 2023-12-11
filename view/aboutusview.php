@@ -86,10 +86,10 @@ html {
   <div style="width: 100%;">
     <?php foreach($resultsWorkers as $product): ?>
        <div class="product">
-        <img src=<?= $product->imagenworkers;?>></img>
-        <h2><?= $product->nameworkers; ?></h2>
-        <p><?= $product->perfilworkers; ?></p>
-        <p>Nacionality: <?= $product->nacionalityworkers; ?></p>
+        <img src=<?= $product['imagenworkers'];?>></img>
+        <h2><?= $product['nameworkers']; ?></h2>
+        <p><?= $product['perfilworkers']; ?></p>
+        <p>Nacionality: <?= $product['nacionalityworkers']; ?></p>
        </div><!-- <button id="btnAnadir" onclick="agregarProductosAlCarrito($product)"></button> -->
         <?php endforeach; ?>
        </div>

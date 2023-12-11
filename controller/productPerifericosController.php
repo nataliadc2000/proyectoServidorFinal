@@ -2,7 +2,8 @@
 
 require_once("../model/productDAO.php");
 
-$resultsProPeri = selectProductForperipherals($pdo);
+$orden = "nombre_asc";
+$resultsProPeri = selectProductForperipherals($pdo,$orden);
 
 $pdo = null;
 

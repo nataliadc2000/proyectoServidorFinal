@@ -1,70 +1,162 @@
 <?php
 require_once("../connection/connection.php");
 require("../model/product.php");
-function selectproducts($pdo) {
+function selectproducts($pdo,$orden) {
     try {
         //Hacemos la query
-        $statement = $pdo->query("SELECT * from products");
+        $sql = "SELECT * from products";
 
-        $results = [];
-
-        foreach ($statement->fetchAll() as $p) {
-            $objectP = new Product($p['idproducts'],$p["imagenProduct"], $p["nameProduct"],$p["descriptionProduct"],$p["priceProduct"],$p["categoryProduct"]);
-            array_push($results, $objectP);
-        }
-        return $results;
+ // Agregar la cláusula ORDER BY según el valor de $orden
+        switch ($orden) {
+            case 'nombre_asc':
+                $sql .= " ORDER BY nameProduct ASC";
+                break;
+            case 'nombre_desc':
+                $sql .= " ORDER BY nameProduct DESC";
+                break;
+            case 'precio_asc':
+                $sql .= " ORDER BY priceProduct ASC";
+                break;
+            case 'precio_desc':
+                $sql .= " ORDER BY priceProduct DESC";
+                break;
+            default:
+                // Opción por defecto si no se selecciona ninguna opción
+                break;
+    }
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;     
     }catch (PDOException $e) {
         echo "No se ha podido completar la transaccion" .$e;
     }
 }
-function selectProductForperipherals($pdo) {
+function selectProductForperipherals($pdo,$orden) {
+  
+
     try {
-        $statement = $pdo->prepare("SELECT * FROM products WHERE categoryProduct = 'peripherals'");
-        $statement->execute();
-        $resultsPeri = [];
-        foreach ($statement->fetchAll() as $p) {
-            $objectP = new Product($p['idproducts'],$p['imagenProduct'],$p['nameProduct'],$p['descriptionProduct'],$p['priceProduct'],$p['categoryProduct']);
-            array_push($resultsPeri, $objectP);
-        }
-        return $resultsPeri;
-    } catch (PDOException $e) {
-        echo "No se ha podido completar la transacción: " . $e->getMessage();
-        return [];
+
+        $sql = "SELECT * FROM products WHERE categoryProduct = :categoriaProducto";
+
+         // Agregar la cláusula ORDER BY según el valor de $orden
+        switch ($orden) {
+            case 'nombre_asc':
+                $sql .= " ORDER BY nameProduct ASC";
+                break;
+            case 'nombre_desc':
+                $sql .= " ORDER BY nameProduct DESC";
+                break;
+            case 'precio_asc':
+                $sql .= " ORDER BY priceProduct ASC";
+                break;
+            case 'precio_desc':
+                $sql .= " ORDER BY priceProduct DESC";
+                break;
+            default:
+                // Opción por defecto si no se selecciona ninguna opción
+                break;
     }
+        $stmt = $pdo->prepare($sql);
+        $categoriaProducto = 'peripherals';
+        $stmt -> bindParam (':categoriaProducto' , $categoriaProducto);
+        $stmt->execute();
+        $resultsParts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultsParts;      
+       
+        
+
+    } catch (PDOException $e){
+        echo $e;
+        require("../errors/Error.php");
+        return false;
+    
+    }
+    
 }
 
-function selectProductForPartsOfTheComputer($pdo) {
+function selectProductForPartsOfTheComputer($pdo,$orden) {
+       
     try {
-        $statementparts = $pdo->prepare("SELECT * FROM products WHERE categoryProduct ='parts of the computer'");
-        $statementparts->execute();
-        $resultsParts = [];
-        foreach ($statementparts->fetchAll() as $par) {
-            $objectPar = new Product($par['idproducts'],$par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
-            array_push($resultsParts, $objectPar);
-        }
-        return $resultsParts;
-    } catch (PDOException $e) {
-        echo "No se ha podido completar la transacción: " . $e->getMessage();
-        return [];
+
+        $sql = "SELECT * FROM products WHERE categoryProduct = :categoriaProducto";
+
+         // Agregar la cláusula ORDER BY según el valor de $orden
+        switch ($orden) {
+            case 'nombre_asc':
+                $sql .= " ORDER BY nameProduct ASC";
+                break;
+            case 'nombre_desc':
+                $sql .= " ORDER BY nameProduct DESC";
+                break;
+            case 'precio_asc':
+                $sql .= " ORDER BY priceProduct ASC";
+                break;
+            case 'precio_desc':
+                $sql .= " ORDER BY priceProduct DESC";
+                break;
+            default:
+                // Opción por defecto si no se selecciona ninguna opción
+                break;
     }
+        $stmt = $pdo->prepare($sql);
+        $categoriaProducto = 'parts of the computer';
+        $stmt -> bindParam (':categoriaProducto' , $categoriaProducto);
+        $stmt->execute();
+        $resultsParts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultsParts;      
+       
+        
+
+    } catch (PDOException $e){
+        echo $e;
+        require("../errors/Error.php");
+        return false;
+    
+    }
+    
 }
 
-function selectProductForTeclas($pdo) {
+function selectProductForTeclas($pdo,$orden) {
+       
     try {
-        $statementteclas = $pdo->prepare("SELECT * FROM products WHERE categoryProduct ='keys'");
-    //    echo $statementteclas;
-        $statementteclas->execute();
-        $resultsTeclas = [];
-        foreach ($statementteclas->fetchAll() as $par) {
-            // echo $par;
-            $objectPar = new Product($par['idproducts'], $par['imagenProduct'], $par['nameProduct'], $par['descriptionProduct'], $par['priceProduct'], $par['categoryProduct']);
-            array_push($resultsTeclas, $objectPar);
-        }
-        return $resultsTeclas;
-    } catch (PDOException $e) {
-        echo "No se ha podido completar la transacción: " . $e->getMessage();
-        return [];
+
+        $sql = "SELECT * FROM products WHERE categoryProduct = :categoriaProducto";
+
+         // Agregar la cláusula ORDER BY según el valor de $orden
+        switch ($orden) {
+            case 'nombre_asc':
+                $sql .= " ORDER BY nameProduct ASC";
+                break;
+            case 'nombre_desc':
+                $sql .= " ORDER BY nameProduct DESC";
+                break;
+            case 'precio_asc':
+                $sql .= " ORDER BY priceProduct ASC";
+                break;
+            case 'precio_desc':
+                $sql .= " ORDER BY priceProduct DESC";
+                break;
+            default:
+                // Opción por defecto si no se selecciona ninguna opción
+                break;
     }
+        $stmt = $pdo->prepare($sql);
+        $categoriaProducto = 'keys';
+        $stmt -> bindParam (':categoriaProducto' , $categoriaProducto);
+        $stmt->execute();
+        $resultsTeclas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $resultsTeclas;      
+       
+        
+
+    } catch (PDOException $e){
+        echo $e;
+        require("../errors/Error.php");
+        return false;
+    
+    }
+    
 }
 
 

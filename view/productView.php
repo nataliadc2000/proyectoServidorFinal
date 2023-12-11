@@ -72,14 +72,15 @@ include("../controller/productController.php");
     <div style="width: 100%">
     <?php foreach($resultsPro as $product): ?>
        <div class="product">
-        <img src=<?= $product->imagenProduct;?>></img>
-        <h2><?= $product->nameProduct; ?></h2>
-        <p><?= $product->descriptionProduct; ?></p>
-        <p>Precio: <?= $product->priceProduct; ?></p>
+        <img src=<?= $product['imagenProduct'];?>></img>
+        <h2><?= $product['nameProduct']; ?></h2>
+        <p><?= $product['descriptionProduct']; ?></p>
+        <p>Precio: <?= $product['priceProduct']; ?></p>
         <form method="POST" action="CestaView.php">
-        <input type="hidden" name="nameProduct" value="<?php echo $product->nameProduct; ?>">
+                <input type="hidden" name="idProducto" value="<?php echo $product['idproducts']; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
+
     </div>
         <?php endforeach; ?>
     </div>

@@ -67,15 +67,16 @@ include("../controller/productPerifericosController.php");
     <div style="width: auto; height:auto; border:1px solid black;">
     <?php foreach($resultsProPeri as $product): ?>
        <div class="product">
-        <img src=<?= $product->imagenProduct;?>></img>
-        <h2><?= $product->nameProduct; ?></h2>
-        <p><?= $product->descriptionProduct; ?></p>
-        <p>Price: <?= $product->priceProduct; ?></p>
+        <img src=<?= $product['imagenProduct'];?>></img>
+        <h2><?= $product['nameProduct']; ?></h2>
+        <p><?= $product['descriptionProduct']; ?></p>
+        <p>Price: <?= $product['priceProduct']; ?></p>
         <!-- <button id="btnAnadir" title="Add in the list" onclick="agregarProductosAlCarrito($product)">Add in the list</button> -->
         <form method="POST" action="CestaView.php">
-        <input type="hidden" name="nameProduct" value="<?php echo $product->idproducts; ?>">
+                <input type="hidden" name="idProducto" value="<?php echo $product['idproducts']; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
+
     </div>
         <?php endforeach; ?>
  </body>

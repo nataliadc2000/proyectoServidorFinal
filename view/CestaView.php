@@ -1,7 +1,10 @@
-<?php 
+<?php
 
-include("../model/AllIds.php")?>
+include ('../model/AllIds.php');
+
+?>
 <!DOCTYPE html>
+<!-- <html lang="en" data-bs-theme="dark"> -->
 
 <head>
 
@@ -34,15 +37,64 @@ include("../model/AllIds.php")?>
 </head>
 
 <body>
-    <header>
-    <div style="background-color: azure;" >
-        <a style="color:black
-        ; font-size: 20px;"> Welcome to the main product page</a>
-        <a href="./userperfil.php">My perfil</a> 
+    <?php
+    if (isset ($_SESSION["usuario"])){
+
+        // Obtener la marca de tiempo actual
+        $currentTimestamp = time();
+           // Verificar si la variable de sesión "lastActivity" existe
+    if (isset($_SESSION["lastActivity"])) {
+        $lastActivityTimestamp = $_SESSION["lastActivity"];
+
+        // Calcular la diferencia en segundos entre la marca de tiempo actual y la última actividad
+        $difference = $currentTimestamp - $lastActivityTimestamp;
+
+        // Verificar si han pasado más de dos días (172800 segundos) desde la última actividad
+        if ($difference >= 172800) {
+            // Eliminar los productos del carrito
+            unset($_SESSION["carritoProductos"]);
+            unset($_SESSION["carritoServicios"]);
+        }
+    }
+
+    // Actualizar la marca de tiempo de la última actividad
+    $_SESSION["lastActivity"] = $currentTimestamp;
+
+        ?>
+    <h3>Bienvenido <?= $_SESSION['usuario']['username']?></h3>
+    <a href="./userperfil.php">Ver mi perfil</a>  
+    <form method="POST" action="Comprar.php">
+        <button type="submit" class="btn btn-primary">Comprar</button>
+    </form>
+    <?php
+    }else {
+
+        ?>
+    <header>Bienvenidos a la página principal.</header>
+    <div>
+        Si ya está registrado pincha aquí: <a href="formulario_login.php">Login</a>
     </div>
- </header>
- <p> Carrito </p><?php
- if (isset($_POST["eliminarProducto"])) {
+    <div>
+        Si aun no está registrado, pincha aquí: <a href="registro.php">Registro</a>
+    </div>
+    <?php
+    }
+    ?>
+     <div >
+ <a class="btn btn-primary"href="../view/productView.php">All Products</a>
+ <a class="btn btn-primary" href="../view/productPerifericosView.php">Peripherals</a>
+ <a class="btn btn-primary" href="../view/productPartsOfTheComputerView.php">Computer Parts</a>
+ <a class="btn btn-primary" href="../view/productTeclasView.php">Keys</a>
+    <a class="btn btn-primary" href="../view/ServicesView.php">Services</a>
+        <a class="btn btn-primary" href="../view/aboutusview.php">About us </a>
+        <a class="btn btn-primary" href ="../view/contactusview.php">Contact us</a>
+        <a class="btn btn-primary" href="../view/CestaView.php">shopping trolley</a>
+
+</div>    
+    <?php
+$groupProducts=[];
+    // Verificar si se ha enviado el formulario de eliminar producto
+if (isset($_POST["eliminarProducto"])) {
     // Obtener el ID del producto a eliminar
     $idProductoEliminar = $_POST["eliminarProducto"];
     // Buscar el índice del producto en el array del carrito de productos
@@ -69,9 +121,9 @@ if (isset($_POST["eliminarServicio"])) {
 if (!isset($_SESSION["carritoProductos"])) {
     $_SESSION["carritoProductos"] = array(); // Si no existe, inicializarla como un array vacío
 }
-if (isset ($_POST["nameProduct"])) {
+if (isset ($_POST["idProducto"])) {
     // Obtener el ID del producto seleccionado
-    $idProducto = $_POST["nameProduct"];
+    $idProducto = $_POST["idProducto"];
     // Agregar el ID del producto al carrito de productos
     $_SESSION["carritoProductos"][] = $idProducto;
 }
@@ -80,9 +132,9 @@ if (isset ($_POST["nameProduct"])) {
 if (!isset($_SESSION["carritoServicios"])) {
     $_SESSION["carritoServicios"] = array(); // Si no existe, inicializarla como un array vacío
 }
-if (isset ($_POST["nameService"])) {
+if (isset ($_POST["idServicio"])) {
     // Obtener el ID del servicio seleccionado
-    $idServicio = $_POST["nameService"];
+    $idServicio = $_POST["idServicio"];
     // Agregar el ID del servicio al carrito de servicios
     $_SESSION["carritoServicios"][] = $idServicio;
 }
@@ -90,21 +142,24 @@ if (isset ($_POST["nameService"])) {
 // Verificar si la variable de sesión "carritoProductos" existe y tiene productos
 if (isset($_SESSION["carritoProductos"]) && count($_SESSION["carritoProductos"]) > 0) {
 
-
     // Obtener los IDs de los productos del carrito
     $idsProductos = $_SESSION["carritoProductos"];
-    print_r($idsProductos);
+
     // Obtener los detalles de los productos desde la base de datos
     $productosCarrito = obtenerProductosPorIds($pdo, $idsProductos);
-    print_r($productosCarrito);
+
     // Mostrar los productos en el carrito
+    
     foreach ($productosCarrito as $producto) {
+        echo "<h1>Products</h1>";
         echo $producto['nameProduct'] . "<br>";
         echo $producto['descriptionProduct'] . "<br>";
         echo $producto['priceProduct'] . "<br>";
         echo $producto['categoryProduct'] . "<br>";
         echo '<img src="' . $producto['imagenProduct'] . '"><br>';
         echo "<br>";
+
+        array_push($groupProducts,$producto);
         ?>
     <form method="POST" action="">
         <input type="hidden" name="eliminarProducto" value="<?php echo $producto['idproducts']; ?>">
@@ -129,17 +184,20 @@ if (isset($_SESSION["carritoServicios"]) && count($_SESSION["carritoServicios"])
     // Mostrar los servicios en el carrito
     foreach ($serviciosCarrito as $servicio) {
         
-            echo $servicio['nameService'] . "<br>";
-            echo $servicio['descriptionService'] . "<br>";
-            echo $servicio['priceService'] . "<br>";
-            echo $servicio['categoryService'] . "<br>";
-            echo '<img src="' . $servicio['imagenServicio'] . '"><br>';
+            echo $servicio['nameServices'] . "<br>";
+            echo $servicio['descriptionServices'] . "<br>";
+            echo $servicio['priceServices'] . "<br>";
+            echo $servicio['categoryServices'] . "<br>";
+            echo '<img src="' . $servicio['imagesServices'] . '"><br>';
             echo "<br>";
+            array_push($groupProducts,$servicio);
             ?>
     <form method="POST" action="">
-        <input type="hidden" name="eliminarServicio" value="<?php echo $servicio['idServicio']; ?>">
+        <input type="hidden" name="eliminarServicio" value="<?php echo $servicio['idservices']; ?>">
         <button type="submit" class="btn btn-primary">Eliminar</button>
     </form>
+
+
     <?php
 }
 
@@ -147,6 +205,7 @@ if (isset($_SESSION["carritoServicios"]) && count($_SESSION["carritoServicios"])
     echo "No hay servicios en el carrito";
 }
 ?>
+<!-- <button type="submit">Finalizar compra </button> -->
 </body>
 
 </html>

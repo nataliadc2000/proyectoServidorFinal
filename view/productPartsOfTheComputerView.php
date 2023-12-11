@@ -67,14 +67,14 @@ include("../controller/productPartsOfTheComputerController.php");
 
 </div>    
     <div style="width: 100%">
-    <?php foreach($resultsProParts as $product): ?>
+    <?php foreach($resultsProParts as $result): ?>
        <div class="product">
-        <img src=<?= $product->imagenProduct;?>></img>
-        <h2><?= $product->nameProduct; ?></h2>
-        <p><?= $product->descriptionProduct; ?></p>
-        <p>Precio: <?= $product->priceProduct; ?></p>
+        <img src=<?= $result['imagenProduct'];?>></img>
+        <h2><?= $result['nameProduct']; ?></h2>
+        <p><?= $result['descriptionProduct']; ?></p>
+        <p>Precio: <?= $result['priceProduct']; ?></p>
         <form method="POST" action="CestaView.php">
-        <input type="hidden" name="nameProduct" value="<?php echo $product->idproducts; ?>">
+                <input type="hidden" name="idProducto" value="<?php echo $result['idproducts']; ?>">
                 <button type="submit" class="btn btn-primary">Comprar</button>
             </form>
 

@@ -2,7 +2,8 @@
 
 require_once("../model/productDAO.php");
 
-$resultsProTeclas = selectProductForTeclas($pdo);
+$orden="nombre_asc";
+$resultsProTeclas = selectProductForTeclas($pdo,$orden);
 
 $pdo = null;
 

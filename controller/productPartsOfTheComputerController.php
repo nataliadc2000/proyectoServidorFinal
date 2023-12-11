@@ -2,7 +2,8 @@
 
 require_once("../model/productDAO.php");
 
-$resultsProParts = selectProductForPartsOfTheComputer($pdo);
+$orden = "nombre_asc";
+$resultsProParts = selectProductForPartsOfTheComputer($pdo,$orden);
 
 $pdo = null;
 

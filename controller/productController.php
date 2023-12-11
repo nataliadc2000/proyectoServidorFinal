@@ -2,7 +2,8 @@
 
 require_once("../model/productDAO.php");
 
-$resultsPro = selectproducts($pdo);
+$orden = "nombre_asc";
+$resultsPro = selectproducts($pdo,$orden);
 
 $pdo = null;
 
